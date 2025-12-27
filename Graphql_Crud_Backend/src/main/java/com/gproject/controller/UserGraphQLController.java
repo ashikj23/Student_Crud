@@ -12,11 +12,14 @@ import org.springframework.stereotype.Controller;
 import com.gproject.entity.User;
 import com.gproject.service.UserService;
 
+import lombok.RequiredArgsConstructor;
+
 @Controller
+@RequiredArgsConstructor
 public class UserGraphQLController {
     
-    @Autowired
-    private UserService userService;
+   
+    private final UserService userService;
     
     @QueryMapping
     public List<User> getAllUsers() {
