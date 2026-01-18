@@ -48,9 +48,9 @@ public class UserService {
             throw new RuntimeException("Email already exists: " + userDetails.getEmail());
         }
         
-        user.setName(userDetails.getName());
-        user.setEmail(userDetails.getEmail());
-        user.setAge(userDetails.getAge());
+        if(userDetails.getName()!=null&& !userDetails.getName().equals(""))  userDetails.setName(userDetails.getName());
+        if(userDetails.getEmail()!=null) user.setEmail(userDetails.getEmail());
+        if(userDetails.getAge()!=null ) user.setAge(userDetails.getAge());
         
         return userRepository.save(user);
     }
